@@ -22,20 +22,7 @@ class _LoginPageState extends State<LoginPage> {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: Container(
-          height: 50,
-          margin: const EdgeInsets.all(16),
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: base,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12), // <-- Radius
-              ),
-            ),
-            onPressed: () {},
-            child:  Center(child: Text("Next",style: GoogleFonts.inter(fontSize: 20,fontWeight: FontWeight.bold, color: yellow ),)),
-          ),
-        ),
+        floatingActionButton: const FloatingButton(),
         backgroundColor: white,
         body: SingleChildScrollView(
           physics: const NeverScrollableScrollPhysics(),
@@ -53,7 +40,9 @@ class _LoginPageState extends State<LoginPage> {
                   child: const TextLogin(),
                 ),
 
-                Expanded(flex: 2, child: TextInputLogin(width: width)),
+                Expanded(
+                  flex: 2, 
+                  child: TextInputLogin(width: width)),
 
                 Expanded(
                   flex: 5,

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_inventory/Page/main/dashboard/dashboard.dart';
 import 'package:flutter_inventory/global/color.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -54,16 +55,20 @@ class TextInputLogin extends StatelessWidget {
                   topLeft: Radius.circular(16),
                   bottomLeft: Radius.circular(16)),
               child: Container(
-                margin: const EdgeInsets.only(right : 10.0),
+                margin: const EdgeInsets.only(right: 10.0),
                 color: base,
                 height: width * 0.15,
                 width: width * 0.16,
-                child: Icon(Icons.person_rounded, color: yellow,size: 32,),
+                child: Icon(
+                  Icons.person_rounded,
+                  color: yellow,
+                  size: 32,
+                ),
               ),
             ),
           ),
         ),
-       const Divider(
+        const Divider(
           color: Colors.transparent,
           height: 16,
         ),
@@ -78,16 +83,52 @@ class TextInputLogin extends StatelessWidget {
                   topLeft: Radius.circular(16),
                   bottomLeft: Radius.circular(16)),
               child: Container(
-                margin: const EdgeInsets.only(right : 10.0),
+                margin: const EdgeInsets.only(right: 10.0),
                 color: base,
                 height: width * 0.15,
                 width: width * 0.16,
-                child: Icon(Icons.lock_rounded, color: yellow,size: 32,),
+                child: Icon(
+                  Icons.lock_rounded,
+                  color: yellow,
+                  size: 32,
+                ),
               ),
             ),
           ),
         ),
       ],
+    );
+  }
+}
+
+class FloatingButton extends StatelessWidget {
+  const FloatingButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      margin: const EdgeInsets.all(16),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: base,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12), // <-- Radius
+          ),
+        ),
+        onPressed: () {
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const DashboardPage()));
+        },
+        child: Center(
+            child: Text(
+          "Next",
+          style: GoogleFonts.inter(
+              fontSize: 20, fontWeight: FontWeight.bold, color: yellow),
+        )),
+      ),
     );
   }
 }
